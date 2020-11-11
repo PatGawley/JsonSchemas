@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "definitions": {
+    "onboardingStatus": {
+      "type": "object",
+      "properties": {
+        "nominationError": {
+          "type": "boolean",
+          "description": "Indicates whether or not an error occurred in the nomination process"
+        },
+        "successful": {
+          "type": "boolean",
+          "description": "Indicates whether or not nomination was successful"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the nominated card: - "
+        },
+        "description": {
+          "type": "number",
+          "description": "Links to an enum of the status as follows... REQUESTED(0), CARD_NOT_AVAILABLE(1), ACCOUNT_NOT_AVAILABLE(2), DETAILS_NOT_MATCHED(3), VALIDATION(4), NOT_ALLOWED(5), ONBOARDED(6)"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The datetime that the status was last updated"
+        }
+      },
+      "required": [
+        "nominationError",
+        "successful",
+        "status",
+        "description",
+        "timestamp"
+      ]
+    }
+  },
+  "nominatedCard": {
+    "type": "object",
+    "properties": {
+      "externalKey": {
+        "type": "string",
+        "description": "Unique identifier of the Customer in the source system.  For Iceland Online this corresponds to the SalesForce Id"
+      },
+      "cardNumber": {
+        "type": "string",
+        "description": "The card number, a unique identifier of the card",
+        "pattern": "^(\\d){19}$"
+      },
+      "style": {
+        "type": "string",
+        "description": "Hardcoded to FOOD_WAREHOUSE but may be used in the future to relate to different images to display on the card"
+      },
+      "barcode": {
+        "type": "string",
+        "description": "The barcode to be scanned at the POS (the card number with a four digit suffix and a Luhn check digit",
+        "pattern": "^(\\d){24}$"
+      },
+      "scanInStore": {
+        "type": "boolean",
+        "description": "Whether or not the barcode can be scanned in store"
+      },
+      "balanceAdjust": {
+        "type": "boolean",
+        "description": "Whether or not any transactions can be made against the card"
+      },
+      "balance": {
+        "type": "number",
+        "description": "The balance on the card"
+      },
+      "onboardingStatus": { "$ref": "#/definitions/onboardingStatus" }
+    },
+    "required": [
+      "externalId",
+      "cardNumber",
+      "style",
+      "barcode",
+      "scanInStore",
+      "balanceAdjust",
+      "balance",
+      "onboardingStatus"
+    ]
+  }
+}

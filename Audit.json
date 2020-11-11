@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "Audit": {
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "description": "The domain relating to the audit entry; examples include Bonus-Card, HHT, Online, Tlogs etc."
+      },
+      "sourceSystem": {
+        "type": "string",
+        "description": "The source system or service that the audit data has come from e.g. NominationProcess"
+      },
+      "entity": {
+        "type": "string",
+        "description": "The name of the entity that is being recorded e.g. NominatedCard"
+      },
+      "environment": {
+        "type": "string",
+        "description": "The environment i.e. Production, UAT, Development"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "The datetime of the audit entry"
+      },
+      "payload": {
+        "type": "object",
+        "description": "The audit entry"
+      }
+    },
+    "required": [
+      "domain",
+      "sourceSystem",
+      "entity",
+      "environment",
+      "timestamp",
+      "payload"
+    ]
+  }
+}
