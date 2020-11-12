@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
 
-  "Audit": {
+  "AuditEntry": {
     "type": "object",
     "properties": {
       "domain": {
