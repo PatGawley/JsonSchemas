@@ -14,7 +14,7 @@
     "nominationRequest": {
       "type": "object",
       "properties": {
-        "externalId": { "type": "string" },
+        "externalKey": { "type": "string" },
         "channel": { "type": "string" },
         "newCustomer": { "type": "boolean" },
         "cardDetails": { "$ref": "#/definitions/cardDetails" }
