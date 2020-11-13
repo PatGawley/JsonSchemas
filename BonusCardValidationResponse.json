@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "definitions": {
+    "authorizationDetails": {
+      "type": "object",
+      "properties": {
+        "surname": {
+          "type": "string",
+          "description": "The surname used to authorize use i.e. matched against that in Loyalty"
+        },
+        "postCode": {
+          "type": "string",
+          "description": "The post code used to authorize use i.e. matched against that in Loyalty"
+        },
+        "isAuthorized": {
+          "type": "boolean",
+          "description": "Where or not the bonus card can be used based on the surname and post code"
+        }
+      },
+      "required": ["surname", "postCode", "isAuthorized"]
+    }
+  },
+  "BonusCardValidationResponse": {
+    "type": "object",
+    "properties": {
+      "cardNumber": {
+        "type": "string",
+        "description": "The card number, a unique identifier of the card",
+        "pattern": "^(\\d){19}$"
+      },
+      "style": {
+        "type": "string",
+        "description": "Hardcoded to FOOD_WAREHOUSE but may be used in the future to relate to different images to display on the card"
+      },
+      "barcode": {
+        "type": "string",
+        "description": "The barcode to be scanned at the POS (the card number with a four digit suffix and a Luhn check digit",
+        "pattern": "^(\\d){24}$"
+      },
+      "activeInLoyalty": {
+        "type": "boolean",
+        "description": "Whether or not the card is active and can be used"
+      },
+      "existsInLoyalty": {
+        "type": "boolean",
+        "description": "Whether or not the card number exists in Loyalty"
+      },
+      "authorizationDetails": { "$ref": "#/definitions/authorizationDetails" }
+    },
+    "required": [
+      "cardNumber",
+      "style",
+      "barcode",
+      "activeInLoyalty",
+      "existsInLoyalty",
+      "authorizationDetails"
+    ]
+  }
+}
