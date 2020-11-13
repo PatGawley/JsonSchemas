@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "DispenseCardResponse": {
+    "type": "object",
+    "properties": {
+      "cardNumber": {
+        "type": "string",
+        "description": "The card number, a unique identifier of the card",
+        "pattern": "^(\\d){19}$"
+      },
+      "dispenseSuccessful": {
+        "type": "boolean",
+        "description": "Whether or the card was dispensed successfully"
+      }
+    },
+    "required": ["cardNumber", "dispenseSuccessful"]
+  }
+}
