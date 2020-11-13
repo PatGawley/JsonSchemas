@@ -46,6 +46,10 @@
         "type": "boolean",
         "description": "Whether or not the card number exists in Loyalty"
       },
+      "balance": {
+        "type": "number",
+        "description": "The balance available on the card"
+      },
       "authorizationDetails": { "$ref": "#/definitions/authorizationDetails" }
     },
     "required": [
