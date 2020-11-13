@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "definitions": {
+    "authorizationRequest": {
+      "type": "object",
+      "properties": {
+        "surname": {
+          "type": "string",
+          "description": "The surname used to authorize use i.e. matched against that in Loyalty"
+        },
+        "postCode": {
+          "type": "string",
+          "description": "The post code used to authorize use i.e. matched against that in Loyalty"
+        }
+      },
+      "required": ["surname", "postCode"]
+    }
+  },
+  "BonusCardValidationRequest": {
+    "type": "object",
+    "properties": {
+      "cardNumber": {
+        "type": "string",
+        "description": "The card number, a unique identifier of the card",
+        "pattern": "^(\\d){19}$"
+      },
+      "authorizationRequest": { "$ref": "#/definitions/authorizationRequest" }
+    },
+    "required": ["cardNumber", "authorizationRequest"]
+  }
+}
