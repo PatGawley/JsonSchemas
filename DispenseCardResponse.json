@@ -9,6 +9,15 @@
         "description": "The card number, a unique identifier of the card",
         "pattern": "^(\\d){19}$"
       },
+      "style": {
+        "type": "string",
+        "description": "Hardcoded to FOOD_WAREHOUSE but may be used in the future to relate to different images to display on the card"
+      },
+      "barcode": {
+        "type": "string",
+        "description": "The barcode to be scanned at the POS (the card number with a four digit suffix and a Luhn check digit",
+        "pattern": "^(\\d){24}$"
+      },
       "dispenseSuccessful": {
         "type": "boolean",
         "description": "Whether or the card was dispensed successfully"
