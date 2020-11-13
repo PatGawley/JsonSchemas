@@ -13,11 +13,11 @@
           "type": "boolean",
           "description": "Indicates whether or not nomination was successful"
         },
-        "status": {
+        "description": {
           "type": "string",
           "description": "The status of the nominated card: - "
         },
-        "description": {
+        "status": {
           "type": "number",
           "description": "Links to an enum of the status as follows... REQUESTED(0), CARD_NOT_AVAILABLE(1), ACCOUNT_NOT_AVAILABLE(2), DETAILS_NOT_MATCHED(3), VALIDATION(4), NOT_ALLOWED(5), ONBOARDED(6)"
         },
