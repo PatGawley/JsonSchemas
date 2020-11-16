@@ -10,16 +10,17 @@
         "cardNumber": { "type": "string" }
       },
       "required": ["surname", "postcode", "cardNumber"]
-    },
-    "nominationRequest": {
-      "type": "object",
-      "properties": {
-        "externalKey": { "type": "string" },
-        "channel": { "type": "string" },
-        "newCustomer": { "type": "boolean" },
-        "cardDetails": { "$ref": "#/definitions/cardDetails" }
-      },
-      "required": ["externalId", "channel", "newCustomer"]
     }
+  },
+
+  "nominationRequest": {
+    "type": "object",
+    "properties": {
+      "externalKey": { "type": "string" },
+      "channel": { "type": "string" },
+      "newCustomer": { "type": "boolean" },
+      "cardDetails": { "$ref": "#/definitions/cardDetails" }
+    },
+    "required": ["externalId", "channel", "newCustomer"]
   }
 }
