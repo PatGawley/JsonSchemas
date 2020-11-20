@@ -19,6 +19,7 @@
       "externalKey": { "type": "string" },
       "channel": { "type": "string" },
       "newCustomer": { "type": "boolean" },
+      "isNominatingCard": { "type": "boolean" },
       "cardDetails": { "$ref": "#/definitions/cardDetails" }
     },
     "required": ["externalId", "channel", "newCustomer"]
